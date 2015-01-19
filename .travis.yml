@@ -1,0 +1,11 @@
+---
+install:
+  - sudo apt-get update
+  - sudo apt-get -y install quilt debhelper devscripts build-essential
+
+script:
+  - make skalibs
+  - sudo dpkg -i skalibs_*deb skalibs-dev_*deb
+  - make execline
+  - sudo dpkg -i execline_*deb execline-dev_*deb
+  - make s6
